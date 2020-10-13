@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+ 
+<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+ 
+<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="" class="needs-validation" novalidate>
+            <div class="form-group">
+            <label for="userName">用户名</label>
+            <input name="userName" type="text" class="form-control" required placeholder="请输入用户名" pattern="\w{6,20}" >
+            <div class="valid-feedback">验证正确</div>
+            <div class="invalid-feedback">格式不对，字数应在6-20且只能为字母数字下划线的组合</div>
+            </div>
+            <div class="form-group">
+            <label for="phoneNumber">用户名</label>
+            <input name="phoneNumber" type="text" class="form-control" required placeholder="请输入手机号" pattern="\d{11}">
+            <small>13-17位</small>
+            <div class="valid-feedback">验证正确</div>
+            <div class="invalid-feedback">格式不对，字数</div>
+            </div>
+            <div class="form-group">
+                <label for="birth">出生日期</label>
+                <input name="birth" type="date" class="form-control" required placeholder="请输入出生日期">
+                <div class="valid-feedback">验证正确</div>
+                <div class="invalid-feedback">不能为空</div>
+            </div>
+            <div class="form-group">
+                <label for="addr">地址</label>
+                <input name="addr" type="text" class="form-control" required placeholder="请输入地址">
+                <div class="valid-feedback">验证正确</div>
+                <div class="invalid-feedback">不能为空</div>
+            </div>
+            <input type="submit" class="btn btn-info">
+        </form>
+    </div>
+</body>
+</html>

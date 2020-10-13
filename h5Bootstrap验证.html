@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+ 
+<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+ 
+<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="" class="needs-validation" novalidate>
+            <div class="form-group">
+            <label for="username">用户名</label>
+            <input name="username" type="text" class="form-control" placeholder="请输入用户名" required pattern="{6}">
+            <small class="form-text text-muted">用户名由6-20个字符组成</small>
+            <div class="valid-feedback">验证通过</div>
+            </div>
+            <div class="form-group">
+            <label for="phon"  >手机号</label>
+            <input name="phon" type="text" class="form-control" placeholder="请输入手机号" required>
+            <div class="valid-feedback">验证通过</div>
+            <small class="form-text text-muted">用户名由6-20个字符组成</small>
+            </div>
+            <div class="form-group">
+            <label for="birth"  >出生年月</label>
+            <input name="birth" type="date" class="form-control" placeholder="请输入日期" required>
+            <small class="form-text text-muted">用户名由6-20个字符组成</small>
+            </div>
+            <div class="form-group">
+            <label for="add"  >地址</label>
+            <input name="add" type="text" class="form-control" placeholder="请输入地址" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+        
+    </div>
+</body>
+</html>

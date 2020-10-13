@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="../jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $("input").on("click",function(){
+                alert("2");
+            })
+
+            $("input").bind("click",function(){
+                alert("3");
+            })
+            $("input").click(function(){
+                alert("4")
+            })
+            document.getElementById("btn1").onclick=function(){
+                alert(1)
+            }
+        })
+    </script>
+</head>
+<body>
+    <button id="btn1">one</button>
+    <input type="button"  value="two">
+    
+</body>
+</html>

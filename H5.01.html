@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="../jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script>
+        $(function(){
+            var number,mytime=null;
+            $("button:eq(0)").on("click",function(){
+                
+                number = $("meter").val();
+                number+=20;
+                $("meter").prop("value",number);
+                $("progress").prop("value",number);
+                $("span").html(number);
+            });
+
+            $("button:eq(1)").on("click",function(){
+                if(mytime!=null){
+					clearInterval(mytime);
+					mytime=null;
+                }
+                mytime = setInterval(test,100); 
+            })
+
+            function test(){
+                number = $("meter").val();
+                number+=1;
+                $("meter").prop("value",number);
+                $("progress").prop("value",number);
+                $("span").html(number);
+                if(number==100){
+                    clearInterval(mytime);
+                }
+            }
+            $("button:eq(2)").on("click",function(){
+                clearInterval(mytime);
+                
+            })
+
+            $("button:eq(4)").on("click",function(){
+                number=0;
+                $("meter").prop("value",number);
+                $("progress").prop("value",number);
+                $("span").html(number);
+            })
+
+            $("button:eq(3)").on("click",function(){
+                $("meter").toggle(1500);
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <span></span>
+        <meter max="100" value="0"></meter>
+        <progress max="100" value="0"></progress>
+        <button>增加</button>
+        <button>持续增加</button>
+        <button>停止</button>
+        <button>隐藏/显示</button>
+        <button>清空</button>
+    </div>
+    
+</body>
+</html>

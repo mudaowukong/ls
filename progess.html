@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="../jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script>
+        $(function(){
+            var mytime=null;
+            $("button:eq(0)").on("click",function(){
+                if(mytime!=null)
+                {
+                    clearInterval(mytime);
+                    mytime=null;
+                }
+              mytime=  setInterval(add,200);
+            })
+            function add(){
+                var num=$("progress").val();
+                num+=10;
+                $("progress").val(num);
+                $("span").html(num);
+                if(num==100)
+                {
+                    clearInterval(mytime);
+                }
+            }
+            $("*").on("click",function(){
+                addone();
+            })
+            function addone(){
+                var $cha=$(this).html();
+                $(this).after($cha);
+            }
+            $("button:eq(1)").on("click",function(){
+                clearInterval(mytime);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <span>00</span>
+    <progress max="100" value="0"></progress>
+    <button>持续增加</button>
+    <button>停止</button>
+</body>
+</html>
